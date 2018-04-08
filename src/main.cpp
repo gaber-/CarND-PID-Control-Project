@@ -46,12 +46,12 @@ int main(int argc, char **argv)
   double sw = 10;
 
   // if there are no params keep default
-  if(argc > 1){
+  if(argc > 3){
       p = atof(argv[1]);
       i = atof(argv[2]);
       d = atof(argv[3]);
   }
-  if(argc > 4){
+  if(argc > 7){
       sp = atof(argv[4]);
       si = atof(argv[5]);
       sd = atof(argv[6]);
