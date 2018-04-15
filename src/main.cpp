@@ -35,15 +35,15 @@ int main(int argc, char **argv)
   PID pid;
   PID pidspeed;
   // TODO: Initialize the pid variable.
-  double p = -0.1;
-  double i = -0.001;
-  double d = -0.25;
+  double p = 0.09;
+  double i = 0;
+  double d = 0.38;
 
   // speed params
-  double sp = -0.05;
-  double si = -0.002;
+  double sp = 0.05;
+  double si = 0.002;
   double sd = 0;
-  double sw = 10;
+  double sw = 20;
 
   // if there are no params keep default
   if(argc > 3){
@@ -83,9 +83,9 @@ int main(int argc, char **argv)
           * NOTE: Feel free to play around with the throttle and speed. Maybe use
           * another PID controller to control the speed!
           */
-          pid.UpdateError(cte);
+          pid.UpdateError(-cte);
           steer_value = pid.TotalError();
-          pidspeed.UpdateError(speed - sw);
+          pidspeed.UpdateError(sw - speed);
           double throttle = pidspeed.TotalError();
           
           // DEBUG
