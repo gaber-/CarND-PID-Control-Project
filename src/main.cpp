@@ -83,9 +83,9 @@ int main(int argc, char **argv)
           * NOTE: Feel free to play around with the throttle and speed. Maybe use
           * another PID controller to control the speed!
           */
-          pid.UpdateError(-cte);
+          pid.UpdateError(cte);
           steer_value = pid.TotalError();
-          pidspeed.UpdateError(sw - speed);
+          pidspeed.UpdateError(speed - sw);
           double throttle = pidspeed.TotalError();
           
           // DEBUG
